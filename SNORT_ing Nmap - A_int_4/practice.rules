@@ -1,0 +1,6 @@
+#sid:478
+#alert tcp $src.ip any -> $dst.ip any (sid:480;dsize:0;msg:"Nmap scan alert !!";)
+#alert tcp $src.ip any -> $dst.ip any (sid:481;detection_filter:track by_src,count 30,seconds 60;msg:"Nmap Scan with changed window size";)
+#alert tcp $src.ip any -> $dst.ip any (sid:482;content:"hellofriend";msg:"Hello Friend Scan";)
+#alert tcp $src.ip any -> $dst.ip any (sid:483;flags:FPU;msg:"Possible XMAS Scan !";)
+#alert tcp $src.ip any -> $dst.ip any (sid:484;msg:"Testing";)
