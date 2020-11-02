@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <title> 
+        HTML DOM Location search Property 
+    </title> 
+</head> 
+  
+<body> 
+    <h1>GeeksforGeeks</h1> 
+      
+    <h2> 
+        HTML DOM Location search Property 
+    </h2> 
+      
+    <button onclick="myGeeks()">Click Here!</button> 
+      
+    <!-- script to return location search property -->
+    <script> 
+        function myGeeks() { 
+            const url = document.createElement('a'); 
+              
+            url.setAttribute('href',  
+'https://geeksforgeeks.org/pathname?username=admin&city=mumbai'); 
+      
+            window.alert("URL search value of current page: " 
+                    + url.search); 
+        } 
+    </script> 
+</body> 
+  
+</html>           
