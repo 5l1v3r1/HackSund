@@ -3,11 +3,17 @@
 ## Dorks in action
 
 `site:target.com -site www.target.com`
+
 `allintext:password filetype:log`
+
 `allintext:username filetype:log`
+
 `inurl: /.git`
+
 `site:*/cgi-bin/webproc intext:"username"`
+
 `inurl:ftp://ftp robots.txt`
+
 `inurl:"view/index.shtml"`
 
 ## Whatsapp Case
