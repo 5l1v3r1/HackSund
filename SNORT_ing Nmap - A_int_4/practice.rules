@@ -1,6 +1,18 @@
-#sid:478
-#alert tcp $src.ip any -> $dst.ip any (sid:480;dsize:0;msg:"Nmap scan alert !!";)
-#alert tcp $src.ip any -> $dst.ip any (sid:481;detection_filter:track by_src,count 30,seconds 60;msg:"Nmap Scan with changed window size";)
-#alert tcp $src.ip any -> $dst.ip any (sid:482;content:"hellofriend";msg:"Hello Friend Scan";)
-#alert tcp $src.ip any -> $dst.ip any (sid:483;flags:FPU;msg:"Possible XMAS Scan !";)
-#alert tcp $src.ip any -> $dst.ip any (sid:484;msg:"Testing";)
+#identifying UDP scan
+#alert udp any any -> 172.16.177.3 22  (msg:"UDP scan on port 22";sid:1024)
+#identifying SYN scan
+#alert tcp any any -> 172.16.177.3 any (msg:"SYN scan";FLAGS:S;sid:1025)
+#identifying XMAS scan
+#alert tcp any any -> 172.16.177.3 any (msg:"XMAS SCAN !!";FLAGS:FPU;sid:1026)
+#identifying NULL scan
+#alert tcp any any -> 172.16.177.3 any (msg:"NULL SCAN !!";FLAGS:0;sid:1027)
+#identifying FIN scan
+#alert tcp any any -> 172.16.177.3 any (msg:"FIN SCAN !!";FLAGS:F;sid:1028)
+#identifying brute force or nmap scans , the basic idea is to identify the attack on the basis of request 
+#count within a time frame
+#alert tcp any any -> 172.16.177.3 any (msg:"Brute Force Scan maybe !!";detection_filter:track by_src,count 30,seconds>
+#identifying on the basis of a particular string or signature
+#alert tcp any any -> 172.16.177.3 any (msg:"BOMB word detected !!";content:"BOMB";nocase;sid:1030)
+#identfying ACK scan
+#alert tcp any any -> 172.16.177.3 any (msg:"ACK Scan detected !!";FLAGS:A;sid:1031)
+
